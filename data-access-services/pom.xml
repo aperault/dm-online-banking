@@ -63,6 +63,16 @@
 			<version>${mysql.jdbc.driver.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+		</dependency>
+
 		<!-- Test -->
 		<dependency>
 			<artifactId>junit</artifactId>
@@ -81,6 +91,12 @@
 		<dependency>
 			<groupId>gokan.ekinci</groupId>
 			<artifactId>aspectj-aop-utils</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>gokan.ekinci</groupId>
+			<artifactId>online-banking-models</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

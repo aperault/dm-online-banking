@@ -9,10 +9,16 @@
 	<name>dm-online-banking</name>
 
 	<modules>
+
+		<module>client-services</module>
 		<module>client-management-services</module>
 		<module>data-access-services</module>
 		<module>aspectj-aop-utils</module>
-	</modules>
+		<module>online-banking-models</module>
+        <module>rest-client-utils</module>
+
+
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,6 +31,8 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>2.11.0</mockito.version>
 		<mysql.jdbc.driver.version>5.1.44</mysql.jdbc.driver.version>
+		<retrofit.version>2.3.0</retrofit.version>
+		<modelmapper.version>1.1.0</modelmapper.version>
 	</properties>
 
 	<dependencyManagement>
@@ -41,10 +49,27 @@
 			</dependency>
 
 			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>retrofit</artifactId>
+				<version>${retrofit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.squareup.retrofit2</groupId>
+				<artifactId>converter-gson</artifactId>
+				<version>${retrofit.version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${modelmapper.version}</version>
 			</dependency>
 
 			<!-- Tests -->
