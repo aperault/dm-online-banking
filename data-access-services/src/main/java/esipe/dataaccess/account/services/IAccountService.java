@@ -14,4 +14,6 @@ public interface IAccountService {
 
 	List<HistoryDto> getAllOperationsHistory(String id);
 
+	List<HistoryDto> getWeeklyOperationsHistory(String id);
+
 }

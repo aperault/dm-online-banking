@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -32,10 +34,26 @@ public class AccountController {
 
     @RequestMapping(path = "/{id}/history", method = RequestMethod.GET)
     public ResponseEntity<?> getAllOperationsHistory(@PathVariable String id) {
-        final List<HistoryDto> historyDtoList = accountService.getAllOperationsHistory(id);
+        List<HistoryDto> historyDtoList = accountService.getAllOperationsHistory(id);
         System.out.println(historyDtoList.get(0).getId());
         return (!historyDtoList.isEmpty()) ?
                 new ResponseEntity<>(historyDtoList, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @RequestMapping(path = "/{id}/weeklyhistory", method = RequestMethod.GET)
+    public ResponseEntity<?> getWeeklyOperationsHistory(@PathVariable String id) {
+        List<HistoryDto> historyDtoList = accountService.getAllOperationsHistory(id);
+        List<HistoryDto> weeklyHistory = new ArrayList<HistoryDto>();
+        historyDtoList.forEach(historyDto -> {
+            if (historyDto.getDate().isBefore( LocalDate.now()) && historyDto.getDate().isAfter(LocalDate.now().minusWeeks(1))){
+                weeklyHistory.add(historyDto);
+            }
+                }
+
+        );
+        System.out.println(historyDtoList.get(0).getId());
+        return (!weeklyHistory.isEmpty()) ?
+                new ResponseEntity<>(weeklyHistory, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 

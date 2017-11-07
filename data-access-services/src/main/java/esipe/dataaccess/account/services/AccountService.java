@@ -60,7 +60,14 @@ public class AccountService implements IAccountService {
 
     @Override
     public List<HistoryDto> getAllOperationsHistory(String id){
-        List<HistoryDto> historyDtoList = mapper.historyEntitiesToHistoryDtoList(historyRepository.getAllByAccount_Id(id));
+        List<HistoryDto> historyDtoList = mapper.historyEntitiesToHistoryDtoList(historyRepository.getAllByAccount(accountRepository.findOne(Long.parseLong(id))));
+        System.out.println(historyDtoList.get(0).getId());
+        return historyDtoList ;
+
+    }
+
+    public List<HistoryDto> getWeeklyOperationsHistory(String id){
+        List<HistoryDto> historyDtoList = mapper.historyEntitiesToHistoryDtoList(historyRepository.getWeeklyHistoryByAccount(accountRepository.findOne(Long.parseLong(id))));
         System.out.println(historyDtoList.get(0).getId());
         return historyDtoList ;
 

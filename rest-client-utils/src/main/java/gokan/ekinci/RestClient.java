@@ -1,6 +1,7 @@
 package gokan.ekinci;
 
 import gokan.ekinci.models.AccountDto;
+import gokan.ekinci.models.HistoryDto;
 import gokan.ekinci.models.Operation;
 import gokan.ekinci.models.UserDto;
 import retrofit2.Call;
@@ -21,6 +22,12 @@ public interface RestClient {
 
     @GET("account/{id}")
     Call<AccountDto> getAccount(@Path("id") String id);
+
+    @GET("account/{accountId}/history")
+    Call<List<HistoryDto>> getHistoryByAccountId(@Path("accountId") String id) ;
+
+    @GET("account/{accountId}/weeklyhistory")
+    Call<List<HistoryDto>> getWeeklyHistory(@Path("accountId") String id) ;
 
     @GET("users/{userId}/account")
     Call<List<AccountDto>> accounts(@Path("userId") String Id);

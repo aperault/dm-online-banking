@@ -1,6 +1,7 @@
 package esipe.dataaccess.user.services;
 
 import gokan.ekinci.models.AccountDto;
+import gokan.ekinci.models.HistoryDto;
 import gokan.ekinci.models.Operation;
 
 import java.io.IOException;
@@ -13,5 +14,9 @@ public interface IUserService {
     List<AccountDto> getAllAccount(String userId);
 
     AccountDto getAccount(String accountId) throws IOException;
+
+    List<HistoryDto> getHistoryByAccountId(String id) throws IOException;
+
+    List<HistoryDto> getWeeklyHistory(String id) throws IOException;
 
 }
