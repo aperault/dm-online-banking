@@ -34,25 +34,18 @@ public class AccountController {
     @RequestMapping(path = "/{id}/history", method = RequestMethod.GET)
     public ResponseEntity<?> getAllOperationsHistory(@PathVariable String id) {
         List<HistoryDto> historyDtoList = accountService.getAllOperationsHistory(id);
-        System.out.println(historyDtoList.get(0).getId());
+
         return (!historyDtoList.isEmpty()) ?
                 new ResponseEntity<>(historyDtoList, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(path = "/{id}/weeklyhistory", method = RequestMethod.GET)
     public ResponseEntity<?> getWeeklyOperationsHistory(@PathVariable String id) {
-        List<HistoryDto> historyDtoList = accountService.getAllOperationsHistory(id);
-        List<HistoryDto> weeklyHistory = new ArrayList<HistoryDto>();
-        historyDtoList.forEach(historyDto -> {
-            if (historyDto.getDate().isBefore( LocalDate.now()) && historyDto.getDate().isAfter(LocalDate.now().minusWeeks(1))){
-                weeklyHistory.add(historyDto);
-            }
-                }
 
-        );
-        System.out.println(historyDtoList.get(0).getId());
-        return (!weeklyHistory.isEmpty()) ?
-                new ResponseEntity<>(weeklyHistory, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        List<HistoryDto> weeklyHistoryDtoList = accountService.getWeeklyOperationsHistory(id);
+
+        return (!weeklyHistoryDtoList.isEmpty()) ?
+                new ResponseEntity<>(weeklyHistoryDtoList, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
