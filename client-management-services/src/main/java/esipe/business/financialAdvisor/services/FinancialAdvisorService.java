@@ -1,7 +1,9 @@
 package esipe.business.financialAdvisor.services;
 
 import esipe.API;
+import esipe.business.GenericException;
 import esipe.models.AccountDto;
+import esipe.models.AccountType;
 import esipe.models.UserDto;
 
 
@@ -38,7 +40,16 @@ public class FinancialAdvisorService implements IFinancialAdvisorService {
     }
 
     @Override
-    public void createAccount(String id, AccountDto accountDto) {
+    public void createAccount(String id, AccountDto accountDto) throws IOException {
+
+        getCustomerById(id).getAccountDtoList().forEach(accountDto1 -> {
+            if(accountDto1.getType() == accountDto.getType())
+                throw new GenericException("Ce client possède déja ce type de compte");
+        });
+
+if(accountDto.getType().equals(AccountType.valueOf("LivretJeune")) && getCustomerById(id).getAge() > 18)
+    throw new GenericException("Ce client est trop agé pour avoir un livret jeune");
+
         API.get().getRetrofitService().createAccount(id,accountDto);
     }
 }

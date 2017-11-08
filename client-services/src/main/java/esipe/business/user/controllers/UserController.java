@@ -27,18 +27,10 @@ public class UserController {
 
     @RequestMapping(path = "/account/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> update(@PathVariable String id, @RequestBody Operation o) throws IOException {
-        List<HistoryDto> weeklyHistory = userService.getWeeklyHistory(id);
-        int sum =0;
-        for(HistoryDto h : weeklyHistory){
-            sum += h.getOperation().getAmount();
-        }
 
-        if(sum > 800 || o.getAmount() > 800)
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Capacité de retrait hebdomadaire atteinte");
-        else {
             userService.updateBalance(id, o);
             return new ResponseEntity<>(HttpStatus.OK);
-        }
+
     }
 
     @RequestMapping(path = "/users/{id}/account", method = RequestMethod.GET)

@@ -18,6 +18,6 @@ public interface IFinancialAdvisorService {
 
     UserDto getCustomerByLastName(String lastName) throws IOException;
 
-    void createAccount(String id, AccountDto accountDto);
+    void createAccount(String id, AccountDto accountDto) throws IOException;
 
 }
