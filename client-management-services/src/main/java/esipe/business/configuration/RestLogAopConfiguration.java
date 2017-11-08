@@ -1,4 +1,4 @@
-package esipe.dataaccess.configuration;
+package esipe.business.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

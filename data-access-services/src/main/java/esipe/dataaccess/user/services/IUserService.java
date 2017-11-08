@@ -1,7 +1,9 @@
 package esipe.dataaccess.user.services;
 
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.UserDto;
+
+
+import esipe.models.AccountDto;
+import esipe.models.UserDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +22,7 @@ public interface IUserService {
 
 	void update(String id, UserDto userDto);
 
-	AccountDto createAccount(String userId,AccountDto accountDto);
+	AccountDto createAccount(String userId, AccountDto accountDto);
 
 	List<AccountDto> getAllAccount(String userId);
 

@@ -5,9 +5,8 @@ import esipe.dataaccess.account.repositories.AccountRepository;
 import esipe.dataaccess.history.entities.HistoryEntity;
 import esipe.dataaccess.history.repositories.HistoryRepository;
 import esipe.dataaccess.utils.Mapper;
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.HistoryDto;
-import gokan.ekinci.models.Operation;
+
+import esipe.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +53,7 @@ public class AccountService implements IAccountService {
         accountRepository.save(accountEntity);
         historyRepository.save(historyEntity);
 
-       //accountRepository.updateBalance(Long.parseLong(id),accountDto.getBalance());
+
 
     }
 
@@ -66,10 +65,5 @@ public class AccountService implements IAccountService {
 
     }
 
-    public List<HistoryDto> getWeeklyOperationsHistory(String id){
-        List<HistoryDto> historyDtoList = mapper.historyEntitiesToHistoryDtoList(historyRepository.getWeeklyHistoryByAccount(accountRepository.findOne(Long.parseLong(id))));
-        System.out.println(historyDtoList.get(0).getId());
-        return historyDtoList ;
 
-    }
 }

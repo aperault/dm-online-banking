@@ -1,18 +1,14 @@
-package esipe.dataaccess.user.services;
+package esipe.business.user.services;
 
-import gokan.ekinci.API;
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.HistoryDto;
-import gokan.ekinci.models.Operation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import esipe.API;
+import esipe.models.AccountDto;
+import esipe.models.HistoryDto;
+import esipe.models.Operation;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {

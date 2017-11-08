@@ -1,8 +1,10 @@
-package esipe.dataaccess.user.services;
+package esipe.business.user.services;
 
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.HistoryDto;
-import gokan.ekinci.models.Operation;
+
+
+import esipe.models.AccountDto;
+import esipe.models.HistoryDto;
+import esipe.models.Operation;
 
 import java.io.IOException;
 import java.util.List;

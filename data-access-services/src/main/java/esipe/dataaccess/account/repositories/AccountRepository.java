@@ -11,8 +11,6 @@ import java.util.List;
 
 public interface AccountRepository extends CrudRepository<AccountEntity,Long> {
 
-    @Modifying(clearAutomatically = true)
-    @Query("UPDATE account a SET a.balance = a.balance + :amount where a.id = :id ")
-    void updateBalance(@Param("id") Long id, @Param("amount") Integer amount);
+
 
 }

@@ -1,4 +1,4 @@
-package gokan.ekinci.models;
+package esipe.models;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

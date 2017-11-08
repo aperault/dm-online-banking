@@ -3,7 +3,9 @@ package esipe.dataaccess.utils;
 import esipe.dataaccess.account.entities.AccountEntity;
 import esipe.dataaccess.history.entities.HistoryEntity;
 import esipe.dataaccess.user.entities.UserEntity;
-import gokan.ekinci.models.*;
+
+
+import esipe.models.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -14,19 +16,7 @@ import java.util.stream.Collectors;
 public class Mapper {
     private static final ModelMapper modelMapper = new ModelMapper();
 
-   /* public UserEntity UserDtoToEntity(UserDto userDto){
 
-
-        UserEntity userEntity = modelMapper.map(userDto,UserEntity.class);
-
-        return userEntity;
-    }
-
-    public UserDto UserEntityToDto(UserEntity userEntity){
-        UserDto userDto = modelMapper.map(userEntity,UserDto.class);
-        return userDto;
-    }
-*/
     public UserDto userEntityToDto(UserEntity userEntity) {
 
         return UserDto.builder()
@@ -62,7 +52,6 @@ public class Mapper {
                         .id(String.valueOf(h.getId()))
                         .date(h.getDate().toLocalDateTime().toLocalDate())
                                 .operation(Operation.builder().amount(h.getAmount()).build())
-                              //  .operation(h.getOperation())
                         .build()
 
                 )
@@ -106,7 +95,6 @@ public class Mapper {
         accountEntity.setId(Long.parseLong(accountDto.getAccountNumber()));
 
         accountEntity.setBalance(accountDto.getBalance());
-     //   accountEntity.setUser(userDtoToEntity());
 
         return accountEntity;
     }

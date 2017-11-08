@@ -1,8 +1,9 @@
-package esipe.dataaccess.user.services;
+package esipe.business.financialAdvisor.services;
 
-import gokan.ekinci.API;
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.UserDto;
+import esipe.API;
+import esipe.models.AccountDto;
+import esipe.models.UserDto;
+
 
 import java.io.IOException;
 

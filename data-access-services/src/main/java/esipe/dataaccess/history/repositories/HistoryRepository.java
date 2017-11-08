@@ -15,7 +15,6 @@ public interface HistoryRepository extends CrudRepository<HistoryEntity,Long> {
     @Query("SELECT h FROM history h WHERE h.account = :account ")
     List<HistoryEntity> getAllByAccount(@Param("account") AccountEntity account );
 
-    @Query(value = "SELECT * FROM history h WHERE h.account_id = 1 AND h.date BETWEEN SYSDATE() - INTERVAL 7 DAY AND SYSDATE() ",nativeQuery=true)
-    List<HistoryEntity> getWeeklyHistoryByAccount(AccountEntity account );
+
 
 }

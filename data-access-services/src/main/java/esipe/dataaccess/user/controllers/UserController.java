@@ -2,8 +2,8 @@ package esipe.dataaccess.user.controllers;
 
 // import org.springframework.data.domain.PageRequest;
 import esipe.dataaccess.user.services.UserService;
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.UserDto;
+
+import esipe.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +14,7 @@ import javax.validation.constraints.Pattern;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Gokan EKINCI
- */
+
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
@@ -56,12 +54,11 @@ public class UserController {
 		@RequestParam(value = "page", required = false) Integer page,
 		@RequestParam(value = "size", required = false) Integer size
 	) {
-		// Pagination
+
 		if (page != null && size != null) {
-			// TODO
+
 		}
 
-		// TODO
 		final List<UserDto> userDtoList = userService.getAll();
 		return (!userDtoList.isEmpty()) ?
 			new ResponseEntity<>(userDtoList, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -80,7 +77,7 @@ public class UserController {
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> delete(@PathVariable String id) {
-		// TODO
+
 		userService.delete(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -89,7 +86,7 @@ public class UserController {
 	public ResponseEntity<AccountDto> createAccount(@PathVariable String id, @RequestBody AccountDto account) {
 
 		AccountDto accountCreated = userService.createAccount(id,account);
-		//userService.update(id,userService.getUserById(id).get());
+
 
 		return new ResponseEntity<>(accountCreated, HttpStatus.OK);
 	}

@@ -1,17 +1,14 @@
-package esipe.dataaccess.user.controllers;
+package esipe.business.financialAdvisor.controllers;
 
 // import org.springframework.data.domain.PageRequest;
-import esipe.dataaccess.user.services.FinancialAdvisorService;
-import gokan.ekinci.API;
-import gokan.ekinci.models.UserDto;
+import esipe.business.financialAdvisor.services.FinancialAdvisorService;
+import esipe.models.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author Gokan EKINCI

@@ -2,9 +2,8 @@ package esipe.dataaccess.account.controllers;
 
 
 import esipe.dataaccess.account.services.AccountService;
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.HistoryDto;
-import gokan.ekinci.models.Operation;
+
+import esipe.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

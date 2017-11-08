@@ -1,4 +1,4 @@
-package gokan.ekinci.models;
+package esipe.models;
 
 public enum AccountType {
 

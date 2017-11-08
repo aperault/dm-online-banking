@@ -1,9 +1,10 @@
-package gokan.ekinci;
+package esipe;
 
-import gokan.ekinci.models.AccountDto;
-import gokan.ekinci.models.HistoryDto;
-import gokan.ekinci.models.Operation;
-import gokan.ekinci.models.UserDto;
+
+import esipe.models.AccountDto;
+import esipe.models.HistoryDto;
+import esipe.models.Operation;
+import esipe.models.UserDto;
 import org.apache.catalina.User;
 import retrofit2.Call;
 import retrofit2.http.*;

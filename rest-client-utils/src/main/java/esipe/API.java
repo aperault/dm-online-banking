@@ -1,4 +1,4 @@
-package gokan.ekinci;
+package esipe;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -15,11 +15,6 @@ public class API {
 
     private RestClient restClient;
 
-
-
-    private API() {
-        /* IGNORED */
-    }
 
     public static API get() {
         if (instance == null) {
